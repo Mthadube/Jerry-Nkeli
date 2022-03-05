@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+<head>
+  <title>Welcome To Jerry Nkeli Attorneys</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/icon.png"/>
+  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css"> 
+  <link rel="stylesheet" type="text/css" href="stylesheets/animate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+  <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+  <style>
+  body {  
+    position: relative; 
+  } 
+
+  .container-fluid {
+    padding: 0 15%;
+  }
+
+  @media only screen and (max-width: 1500px){  
+    .container-fluid {
+      padding: 0 5%;
+    } 
+  }
+
+  @media only screen and (max-width: 1000px){
+    .container-fluid {
+      padding: 0 2%;
+    }
+  }       
+
+  .navbar-toggler {
+    border-color: #cca43d;   
+  }  
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 65, 107, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
+  #top-nav ul {
+    margin-top: 10px;   
+  }
+
+  #top-nav ul li {
+    padding: 7px 8px;
+  }
+
+  #top-nav ul li:hover a {
+    border-bottom: 2px solid #cca43d;
+  }
+
+  #top-nav .navbar-nav a {
+    color: #00416b;
+    font: 16px Roboto, Arial, sans-serif;
+    font-weight: bold;
+    //text-transform: uppercase;
+  }
+
+  .navbar li .active {
+    border-bottom: 2px solid #cca43d;
+  }
+
+  .navbar li a .active {
+    font-weight: bolder;
+  }
+
+  .navbar #contact-btn:hover {
+    background: transparent;
+  }
+
+  /* ============ desktop view ============ */
+@media all and (min-width: 992px) {
+  .navbar .nav-item .dropdown-menu{ display: none; }
+  .navbar .nav-item:hover .nav-link{   }
+  .navbar .nav-item:hover .dropdown-menu{ display: block; }
+  .navbar .nav-item .dropdown-menu{ margin-top:0; }
+}
+
+.navbar .nav-item .dropdown-menu {
+  border-radius: 0;
+  min-width: 200px;
+}
+
+  .navbar .nav-item .dropdown-menu a:hover {
+    background: rgba(0, 65, 107, 0.2);
+  }
+
+  /* Make the image fully responsive */
+  #myCarousel .carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
+
+  #myCarousel .carousel-inner .carousel-caption {
+    position: absolute;
+    left: 25%;
+    top: 30%;
+    text-align: left;
+    color: #fff;
+    
+  }
+
+  #myCarousel .carousel-inner .desktop {
+    display: block;
+  }
+
+  #myCarousel .carousel-inner .mobile {
+    display: none;
+  }
+
+  @media only screen and (max-width: 750px){
+    #myCarousel .carousel-inner .desktop {
+      display: none;
+    }
+    #myCarousel .carousel-inner .mobile {
+      display: block;
+    }
+  }
+
+  #myCarousel .carousel-inner .carousel-caption h3 {
+    font-size: 50px;
+    font-weight: 700;
+    text-shadow: 1px 1px 13px #000;
+    animation-delay: .4s;
+  }
+
+  #myCarousel .carousel-inner .carousel-caption p {
+    font-size: 20px;
+    text-shadow: 2px 2px 3px #000;
+    animation-delay: .7s;
+  }
+
+  @media only screen and (max-width: 1200px){
+    #myCarousel .carousel-inner .carousel-caption h3 {
+      font-size: 30px;
+      font-weight: bold;
+    }
+    #myCarousel .carousel-inner .carousel-caption p {
+      font-size: 16px;
+    }
+  }
+
+  #myCarousel .carousel-caption .btn {
+    background: linear-gradient(70deg, #dfc686, #cca43d);
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 8px 60px;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    //margin-top: 15px;
+    animation-delay: .7s;
+  }
+
+  @media only screen and (max-width: 1000px){
+    #myCarousel .carousel-caption .btn {
+      font-size: 18px;
+      padding: 5px;
+      width: 100%;
+    }
+  }
+
+  .about {
+    background: #00416b;
+  }
+
+  .about .iconify {
+    color: #cca43d;
+    font-size: 60px;
+    animation-delay: .2s;
+  }
+
+  .about p {
+    color: #fff;
+    font-size: 15px;
+    margin-top: 20px;
+    animation-delay: .4s;
+  }
+
+  .side-nav ul li {
+    list-style-type: none;
+    border: 1px solid rgba(102, 102, 102, .3);
+    padding: 7px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .side-nav ul li a {
+    color: #333;
+    text-decoration: none;
+  }
+
+  .side-nav ul li a .iconify {
+    color: #cca43d;
+  }
+
+  .side-nav ul .active, .side-nav ul .active a {
+    background: linear-gradient(70deg, #dfc686, #b59030);
+    color: #fff;
+  }
+
+  .side-nav ul .active a .iconify {
+    color: #fff;
+  }
+
+  .side-nav ul li:hover {
+    background: linear-gradient(70deg, #dfc686, #b59030);
+    transition: ease-in-out .5s;
+  }
+
+  .side-nav ul li:hover a {
+    color: #fff;
+  }
+
+  .side-nav ul li:hover .iconify {
+    color: #fff;
+  }
+
+  #testimonials .carousel-inner {
+    min-height: 350px;
+    background: linear-gradient(70deg, #dfc686, #b59030);
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 8px;
+    box-shadow: 1px 1px 20px #999;
+    position: relative;
+    margin-top: -30px;
+    margin-bottom: 100px;
+  }
+
+  #testimonials .carousel-caption {
+    min-height: 200px;
+    color: #00416b;
+    position: absolute;
+    top: 10%;
+    margin-bottom: 80px;
+  }
+
+  .contact input {
+    border-radius: 0;
+    border: 2px solid #cca43d;
+  }
+
+  ::-webkit-input-placeholder { /* Edge */
+    font-style: italic;
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer */
+    font-style: italic;
+  }
+
+  ::placeholder {
+    font-style: italic;
+  }
+
+  .contact .btn {
+    background: linear-gradient(70deg, #dfc686, #b59030);
+    border: 1px solid #fff;
+    border-radius: 0;
+    color: #fff;
+    font-weight: bold;
+    width: 50%;
+  }
+
+  .contact .btn[disabled] {
+    cursor: no-drop;
+  }
+
+  .contact .btn:hover {    
+    background: linear-gradient(70deg, #a1802b, #dfc686);
+    transition: ease-in .5s;
+  }
+
+  @media only screen and (max-width: 1000px){
+    .contact .btn {
+      width: 100%;
+    }
+  }
+
+  .footer a {
+    color: #fff;
+  }
+
+  .bottom-nav ul li a {
+    color: #fff;
+    font-size: 15px;
+    line-height: 30px;
+  }
+
+</style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="250">
+  <div id="home"></div>
+  <nav class="navbar navbar-expand-lg fixed-top" id="top-nav" style="background: #fff; border-bottom: 1px solid #00416b;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html" style="display: flex; line-height: 21px; margin-top: 15px;">
+        <img src="images/logo.png" class="img-fluid animatable zoomIn" width="85px" style="margin-top: -25px; margin-bottom: -11px; margin-right: 8px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a id="about-btn" class="nav-link" href="index.html#about">About Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="index.html#services" id="navbardrop" data-toggle="dropdown" style="border-bottom: none;">
+              Services
+            </a>
+            <div class="dropdown-menu animatable zoomIn" style="animation-duration: .4s;">
+              <a class="dropdown-item" href="services.html" style="border-bottom: 1px solid rgba(102, 102, 102, .3); font-weight: lighter; padding: 10px; font-size: 15px;">Services</a>
+              <a class="dropdown-item" href="personal-injury.html" style="border-bottom: 1px solid rgba(102, 102, 102, .3); font-weight: lighter; padding: 10px; font-size: 15px;">Personal Injury</a>
+              <a class="dropdown-item" href="litigation.html" style="border-bottom: 1px solid rgba(102, 102, 102, .3); font-weight: lighter; padding: 10px; font-size: 15px;">Litigation</a>
+              <a class="dropdown-item" href="debt-collection.html" style="border-bottom: 1px solid rgba(102, 102, 102, .3); font-weight: lighter; padding: 10px; font-size: 15px;">Debt Collection</a>
+              <a class="dropdown-item" href="labour.html" style="border-bottom: 1px solid rgba(102, 102, 102, .3); font-weight: lighter; padding: 10px; font-size: 15px;">Labour</a>
+              <a class="dropdown-item" href="corporate-advising.html" style="border-bottom: 1px solid rgba(102, 102, 102, .3); font-weight: lighter; padding: 10px; font-size: 15px;">Corporate Advising</a>
+              <a class="dropdown-item" href="secretarial-services.html" style="border-bottom: none; font-weight: lighter; padding: 10px; font-size: 15px;">Secretarial Services</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a id="testimonials-btn" class="nav-link" href="index.html#testimonials">Testimonials</a>
+          </li>
+          <li class="nav-item">
+            <a id="contact-btn" class="nav-link" href="#contact">Contact Us</a>
+          </li>
+          <!--<li class="nav-item">
+            <a id="contact-btn" class="nav-link btn btn-sm" href="shop">Tech Shop</a>
+          </li>-->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Main carousel -->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 100px;">
+    <!--<ul class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ul>-->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/court2.jpg" class="desktop" alt="Los Angeles" width="1100" height="500">
+        <img src="images/court2-mobile.jpg" class="mobile" alt="Los Angeles" width="1100" height="500">
+        <div class="carousel-caption">
+          <h3 class="animatable fadeInDown">Debt Collection</h3>
+          <p class="animatable fadeInUp"><a href="index.html">Home</a> / <a href="services.html">Services</a> / Debt Collection</p>
+        </div>   
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid about" id="about" style="padding-top: 30px; padding-bottom: 30px;">
+  </div>
+  <div class="container-fluid" style="padding-top: 70px; padding-bottom: 60px;">
+    <div class="">
+      <div class="row">
+        <div class="col-md-12 col-lg-8" style="padding: 40px;">
+          <h3 class="text-center animatable fadeInDown" style="color: #444; font-size: 35px; font-weight: bolder; margin-bottom: 0;">Debt Collection</h3>
+          <div class="text-center animatable zoomIn" style="animation-delay: .7s;"><img src="images/modern-page-divider-png-4.png" width="50%" style="margin: -30px;"></div>
+          <p class="animatable fadeInUp" style="margin-top: 30px;">Aenean tincidunt id mauris idology auctor. Donec at ligula lacus. Nulla dig nissimmi quis neque interdum. An Ohio man allegedly punched his lawyer in the face in court Tuesday upon finding out he was sentenced. Aenean tincidunt id mauris idology auctor. Donec at ligula lacus. Nulla dig nissimmi quis neque interdum. An Ohio man allegedly punched his lawyer in the face in court Tuesday upon finding out he was sentenced.</p>
+          <p class="animatable fadeInUp" style="animation-delay: .4s;">Aenean tincidunt id mauris idology auctor. Donec at ligula lacus. Nulla dig nissimmi quis neque interdum. An Ohio man allegedly punched his lawyer in the face in court Tuesday upon finding out he was sentenced. Aenean tincidunt id mauris idology auctor. Donec at ligula lacus. Nulla dig nissimmi quis neque interdum. An Ohio man allegedly punched his lawyer in the face in court Tuesday upon finding out he was sentenced.</p>
+          <ul class="animatable fadeInUp" style="margin-bottom: 60px;">
+            <li>Road Accident Fund Claim</li>
+            <li>Disability Fund</li>
+            <li>Medical Negligency</li>
+            <li>Injury At Work</li>
+            <li>Duty Of Care</li>
+          </ul>
+          <img src="images/business.jpg" alt="Accident Cone" class="img-fluid" style="border: 2px solid #cca43d;">
+        </div>
+        <div class="col-md-12 col-lg-4 side-nav" style="padding-top: 50px;">
+          <ul class="nav flex-column">
+            <li class="nav-item animatable fadeInUp" style="animation-delay: .2s;">
+              <a class="nav-link" href="personal-injury.html">Personal Injury <span><span class="iconify float-right" data-icon="grommet-icons:form-next"></span></a>
+            </li>
+            <li class="nav-item animatable fadeInUp" style="animation-delay: .5s;">
+              <a class="nav-link" href="litigation.html">Litigation <span class="iconify float-right" data-icon="grommet-icons:form-next"></span></a>
+            </li>
+            <li class="nav-item animatable fadeInUp active" style="animation-delay: .8s;">
+              <a class="nav-link" href="debt-collection.html">Debt Collection <span class="iconify float-right" data-icon="grommet-icons:form-next"></span></a>
+            </li>
+            <li class="nav-item animatable fadeInUp" style="animation-delay: .8s;">
+              <a class="nav-link" href="labour.html">Labour <span class="iconify float-right" data-icon="grommet-icons:form-next"></span></a>
+            </li>
+            <li class="nav-item animatable fadeInUp" style="animation-delay: .8s;">
+              <a class="nav-link" href="corporate-advising.html">Corporate Advising <span class="iconify float-right" data-icon="grommet-icons:form-next"></span></a>
+            </li>
+            <li class="nav-item animatable fadeInUp" style="animation-delay: 1.1s;">
+              <a class="nav-link" href="secretarial-services.html">Company Secretarial Services <span class="iconify float-right" data-icon="grommet-icons:form-next"></span></a>
+            </li>
+          </ul>
+          <h3 style="color: #444; font-weight: 500; margin-top: 40px; margin-bottom: 40px;">Contact Us</h3>
+          <h5 style="color: : #666;"><span class="iconify" data-icon="bx:bxs-phone-call" style="color: #cca43d; font-size: 35px; margin-bottom: -5px;"></span> &nbsp; 081 700 4035</h5>
+          <br>
+          <p style="color: : #666;"><span class="iconify" data-icon="clarity:email-solid" style="color: #cca43d; font-size: 35px; margin-bottom: -5px;"></span> &nbsp; info@jerrynkeliattorneys.co.za</p>
+          <br>
+          <p style="color: : #666;"><span class="iconify" data-icon="entypo:location-pin" style="color: #cca43d; font-size: 40px; margin-bottom: -5px;"></span> &nbsp; Villa Montego, 24 Langeveld Street, Vorna Valley | Midrand</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid contact" id="contact" style="min-height: 400px; background: linear-gradient(70deg, #dfc686, #cca43d); background-image: url('images/law2.jpg'); color: #fff;">
+    <div class="container" style="padding-top: 80px; padding-bottom: 40px;">
+      <div class="row justify-content-center">
+        <div class="col-md-12 col-lg-7" id="main-form">
+          <form id="contactForm" class="contact__form" method="post" action="mail.php" name="contactForm" novalidate>
+            <h4 class="text-center animatable fadeInDown" style="color: #fff; font-weight: bolder; text-transform: uppercase;">Inquiry Form</h4>
+            <div class="text-center animatable zoomIn" style="animation-delay: .5s;"><img src="images/modern-page-divider-png-4.png" width="60%" style="margin: -20px;"></div>
+            <br>
+            <div class="form-group" ng-class="{'has-error' : contactForm.name.$invalid && !contactForm.name.$pristine && contactForm.name.$touched}">
+              <input type="text" class="form-control" id="name" placeholder="* Full name" name="name"  ng-model="user.name" ng-minlength="3" required>
+              <p ng-show="contactForm.name.$invalid && !contactForm.name.$pristine && contactForm.name.$touched" class="help-block">Please enter full name</p>
+            </div>
+            <div class="form-group" ng-class="{'has-error' : contactForm.email.$invalid && !contactForm.email.$pristine && contactForm.email.$touched}">
+              <input type="email" class="form-control" id="email" placeholder="* Email address" name="email" ng-model="user.email" required>
+              <p ng-show="contactForm.email.$invalid && !contactForm.email.$pristine && contactForm.email.$touched" class="help-block">Please enter valid email address</p>
+            </div>
+            <div class="form-group" ng-class="{'has-error' : contactForm.phone.$invalid && !contactForm.phone.$pristine && contactForm.phone.$touched}">
+              <input type="number" class="form-control" id="phone" placeholder="* Cellphone number" name="phone" ng-model="user.phone" ng-minlength="10" required>
+              <p ng-show="contactForm.phone.$invalid && !contactForm.phone.$pristine && contactForm.phone.$touched" class="help-block">Please enter valid cellphone number</p>
+            </div>
+            <!--<div class="form-group" ng-class="{'has-error' : contactForm.package.$invalid && !contactForm.package.$pristine && contactForm.package.$touched}">
+              <select class="form-control" id="package" name="package" required style="border: 2px solid #cca43d; border-radius: 0; padding: 15px auto;">
+                <option disabled="" selected="">* Select A Service</option>
+                <option>Web Design</option>
+                <option>Wifi Installation</option>
+                <option>Computer Repairs</option>
+                <option>CCTV & Access Control</option>
+              </select>
+              <p ng-show="contactForm.package.$invalid && !contactForm.package.$pristine && contactForm.package.$touched" class="help-block">Please select a package</p>
+            </div>-->
+            <div class="form-group" ng-class="{'has-error' : contactForm.comment.$invalid && !contactForm.comment.$pristine && contactForm.comment.$touched}">
+              <textarea class="form-control" rows="5" id="comment" placeholder="* Comments" name="comment" ng-model="user.comment" required style="border: 2px solid #cca43d; border-radius: 0; height: 70px;"></textarea>
+              <p ng-show="contactForm.comment.$invalid && !contactForm.comment.$pristine && contactForm.comment.$touched" class="help-block">Please enter valid comments</p>
+            </div>
+            <div class="captcha-verify center-fluid" style="margin-top: 10px; margin-bottom: 10px;">
+              <div class="g-recaptcha" data-sitekey="6LdxaPcbAAAAALrZIhs_4C8qMzX5YWdI_szUyl6b"></div>
+            </div>
+            <div class="text-left">
+              <button class="btn" type="submit" id="submit" ng-disabled="contactForm.$invalid" class="btn">SUBMIT</button>
+            </div>
+            <br>
+            <!-- form sent success message -->
+            <div class="row">
+              <div class="col-12">
+                <div class="alert alert-success contact__msg" style="display: none;" role="alert">
+                  Your inquiry was sent successfully. We will get back to you soonest!
+                </div>
+              </div>
+            </div>
+            <!-- end message -->
+            <br>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<a class="support animatable zoomIn" href="services.html" style="position: fixed; right: 25px; bottom: 20px; text-decoration: none; animation-delay: 1s; z-index: 1000;">
+  <div style="position: relative;">
+    <!--<div class="" style="position: absolute; left: -17px; top: -23px; color: #cca43d; font-size: 43px;"><span class="iconify" data-icon="whh:phonealt"></span></div>-->
+    <p style="margin-left: 25px; font-size: 15px; color: #fff; background: #cca43d; padding: 5px 10px; border: 1px solid rgba(255, 255, 2555, .6); border-radius: 17px; border-top-right-radius: 2px; box-shadow: 0 0 13px #444; font-weight: bold;"><span class="iconify" data-icon="bi:question-circle" style="font-size: 18px; margin-bottom: -2px;"></span> &nbsp;Consult Now</p>
+  </div>
+</a>
+  <div class="container-fluid footer" style="background: #00416b; padding-top: 50px;">
+    <div class="">
+      <div class="row" style="padding-left: 5%;">
+        <br>
+        <div class="col-sm-3 bottom-nav">
+          <ul class="" style="list-style-type: none; padding-left: 0;">
+            <li class="animatable fadeInUp"><a id="home-btn2" href="#home">Home</a></li>
+            <li class="animatable fadeInUp"><a id="about-btn2" href="#about">About Us</a></li>
+            <li class="animatable fadeInUp"><a href="services.html">Our Services</a></li>
+            <li class="animatable fadeInUp"><a href="web-design.html">What Clients Say</a></li>
+            <li class="animatable fadeInUp"><a href="networking.html">Our Blog</a></li>
+            <li class="animatable fadeInUp"><a id="contact-btn3" href="contact">Contact Us</a></li>
+          </ul>
+          <br>
+          <br>
+        </div>
+        <div class="col-sm-5 details">
+          <!--<h4 class="animatable fadeInUp" style="color: #fff;">Contact Details:</h4>-->
+          <p class="animatable fadeInUp"><span style="font-size: 17px;"><i class="fab fa-whatsapp" style="color: #cca43d;"></i></span> &nbsp;<a href="https://wa.me/+27662025691">+27 81 700 4035</a></p>
+          <p class="animatable fadeInUp"><i class="far fa-envelope" style="color: #cca43d;"></i> &nbsp;<a href="mailto:info@jerrynkeliattorneys.co.za">info@jerrynkeliattorneys.co.za</a></p>
+          <p class="animatable fadeInUp"><i class="fab fa-facebook-square" style="font-size: 18px; color: #cca43d;"></i> &nbsp;<a href="https://fb.com/jerrynkeliattorneys/">@jerrynkeliattorneys</a></p>
+          <p class="animatable fadeInUp" style="color: #fff;"><i class="fas fa-map-marker" style="font-size: 18px; color: #cca43d;"></i> &nbsp;Villa Montego, 24 Langeveld Street, Vorna Valley | Midrand</p>          
+          <br>
+        </div>
+        <div class="col-sm-4">
+          <p style="color: #fff;">Copyright &copy; <script>document.write(new Date().getFullYear());</script> | Jerry Nkeli Attorneys</p>
+          <a class="navbar-brand" href="#" style="display: flex; line-height: 21px; margin-top: 15px;">
+            <img src="images/icon.png" class="img-fluid" width="60px" style="margin-top: 0; margin-right: 8px; filter: saturate(150%);"> 
+            <div class="" style="margin-top: 12px; line-height: 17px;">
+              <span style="color: #fff; font-size: 23px; font-weight: bolder;">Jerry</span>
+              <span style="color: #fff;font-size: 23px; font-weight: bolder; margin-left: -5px;">Nkeli</span>
+              <br>
+              <span style="color: #b3b3b3; font-size: 11px; text-transform: uppercase; letter-spacing: 7px;">Attorneys</span>
+            </div>
+          </a>
+          <br>
+          <!--<a href="https://anythingtech.co.za/web-design.html">Web Design By Anything Tech</a>-->
+          <br>
+          <br>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>  
+  <div id="preloader">
+    <div class="loader" style="position: relative;">
+      <span class="iconify" data-icon="map:lawyer" style="position: absolute; top: 40%; left: 40%; color: #cca43d; font-size: 30px;"></span>
+    </div>
+  </div>
+  <script src="appctrl.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
